@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Películas Fr</title>
+    <link rel="icon" href="https://imgs.search.brave.com/3B5REA8c6OOm8RnX1Z5ffhCWpi_7Gd83PQLKC6L9VVA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvcHJldmll/dy0xeC8xOS82Mi9t/b3ZpZS1nZWVrLWxv/Z28tZGVzaWduLXRl/bXBsYXRlLWNsYXBw/ZXItdmVjdG9yLTI3/MTUxOTYyLmpwZw" type="image/png">
+    <style>
+        body {
+            background-color: rgb(0, 0, 73);
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 200;
+            text-align: center;
+        }
+
+        button {
+            background-color: rgb(0, 130, 153);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 4px;
+            border-radius: 7px;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            background-color: rgb(0, 96, 116);
+        }
+
+        button:active {
+            background-color: rgb(0, 70, 80);
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a Películas Fr</h1>
+    <p>¡En esta página podés ver muchas películas totalmente gratis y online!</p>
+    <p>Para ver las películas, hacé clic en el botón de abajo.</p>
+    <button onclick="mostrarTab('tab1')">Películas de Acción</button><button onclick="mostrarTab('tab2')">Películas de Terror</button><button onclick="mostrarTab('tab3')">Películas de Comedia</button>
+
+    <div id="tab1" style="display: none;">
+        <h2>Películas de Acción</h2>
+            <a href="https://m.youtube.com/watch?v=1HVpcNOA_0M&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(83, 0, 0); color: white;">Ella hizo todo</button></a></a><a href="https://m.youtube.com/watch?v=YTMges6TSs4&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(40, 40, 255);">Hercules 2</button></a><a href="https://m.youtube.com/watch?v=cVlveA3at2s&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: blueviolet;">The Meg 2</button></a><a href="https://m.youtube.com/watch?v=oDYMxslKPeY&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: aquamarine; color: black;">Don Exepcional</button></a><a href="https://m.youtube.com/watch?v=5KROpD2wOeE&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: darkgreen;">Plan En Las vegas</button></a><a href="https://m.youtube.com/watch?v=1EvCz1mXmMQ&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(37, 37, 37); color: white;">Crimen</button></a><a href="https://m.youtube.com/watch?v=ccQmquwxuWk&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button>Hombre Busca Venganza</button></a>
+    </div>
+
+    <div id="tab2" style="display: none;">
+        <h2>Películas de Terror</h2>
+        <a href=""
+    </div>
+<script>
+    function mostrarTab(tabId) {
+        const tabs = document.querySelectorAll('div[id^="tab"]');
+        tabs.forEach(tab => {
+            if (tab.id === tabId) {
+                tab.style.display = 'block';
+            } else {
+                tab.style.display = 'none';
+            }
+        });
+    }
+
+    mostrarTab('tab1');
+</script>
+</body>
+</html>

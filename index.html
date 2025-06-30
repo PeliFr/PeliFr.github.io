@@ -12,6 +12,8 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 200;
             text-align: center;
+            overflow-y: scroll;
+            text-shadow: 0 0 2px aquamarine;
         }
 
         button {
@@ -24,6 +26,7 @@
             margin: 4px;
             border-radius: 7px;
             transition: 0.2s ease;
+            box-shadow: 0 2px 6px rgb(0, 0, 0);
         }
 
         button:hover {
@@ -33,25 +36,39 @@
         button:active {
             background-color: rgb(0, 70, 80);
         }
-
-
     </style>
 </head>
 <body>
+    <header style="background-color: rgb(53, 53, 53); padding: 25px; transform: translateY(-20px); border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
     <h1>Bienvenido a Películas Fr</h1>
     <p>¡En esta página podés ver muchas películas totalmente gratis y online!</p>
-    <p>Para ver las películas, hacé clic en el botón de abajo.</p>
-    <button onclick="mostrarTab('tab1')">Películas de Acción</button><button onclick="mostrarTab('tab2')">Películas de Terror</button><button onclick="mostrarTab('tab3')">Películas de Comedia</button>
-
+    <p>Para ver las películas, hacé clic en el botón con el nombre de la película.</p>
+    <button onclick="mostrarTab('tab1')">Películas de Acción</button><button onclick="mostrarTab('tab2')">Películas de Terror</button>
+</header>
     <div id="tab1" style="display: none;">
         <h2>Películas de Acción</h2>
-            <a href="https://m.youtube.com/watch?v=1HVpcNOA_0M&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(83, 0, 0); color: white;">Ella hizo todo</button></a></a><a href="https://m.youtube.com/watch?v=YTMges6TSs4&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(40, 40, 255);">Hercules 2</button></a><a href="https://m.youtube.com/watch?v=cVlveA3at2s&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: blueviolet;">The Meg 2</button></a><a href="https://m.youtube.com/watch?v=oDYMxslKPeY&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: aquamarine; color: black;">Don Exepcional</button></a><a href="https://m.youtube.com/watch?v=5KROpD2wOeE&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: darkgreen;">Plan En Las vegas</button></a><a href="https://m.youtube.com/watch?v=1EvCz1mXmMQ&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(37, 37, 37); color: white;">Crimen</button></a><a href="https://m.youtube.com/watch?v=ccQmquwxuWk&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button>Hombre Busca Venganza</button></a>
+            <a href="https://m.youtube.com/watch?v=1HVpcNOA_0M&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(83, 0, 0); color: white;">Ella hizo todo</button></a></a><a href="https://m.youtube.com/watch?v=YTMges6TSs4&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(40, 40, 255);">Hercules 2</button></a><a href="https://m.youtube.com/watch?v=cVlveA3at2s&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: blueviolet;">The Meg 2</button></a><a href="https://m.youtube.com/watch?v=oDYMxslKPeY&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: aquamarine; color: black;">Don Exepcional</button></a><a href="https://m.youtube.com/watch?v=5KROpD2wOeE&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: darkgreen;">Plan En Las vegas</button></a><a href="https://m.youtube.com/watch?v=1EvCz1mXmMQ&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(37, 37, 37); color: white;">Crimen</button></a><a href="https://m.youtube.com/watch?v=ccQmquwxuWk&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: gray;">Hombre Busca Venganza</button></a>
     </div>
 
     <div id="tab2" style="display: none;">
         <h2>Películas de Terror</h2>
-        <a href=""
+        <a href="https://m.youtube.com/watch?v=afC7xjV92iQ&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(124, 0, 0); color: white;">Jeapers Creepers</button></a><a href="https://m.youtube.com/watch?v=3EA3CunWozU&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(58, 38, 38);">Puerta Maldita</button></a><a href="https://m.youtube.com/watch?v=sBIRDXV6bF4&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(49, 49, 49); ">Un retiro soñado</button></a><a href="https://m.youtube.com/watch?v=2EBZN3stndQ&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(43, 43, 43); color: rgb(255, 255, 255);">Adoptaron a un Demonio</button></a><a href="https://m.youtube.com/watch?v=uTliZziu9qQ&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(48, 17, 17);">Muñeca maldita</button></a>
     </div>
+<div id="overlay"></div>
+<br><br><br><br><br><br>
+<button style="border-radius: 2px; padding: 5px; background-color: rgb(88, 88, 88); color: rgb(255, 255, 255); float: left;" onclick="mostrarVentana()">Ayuda</button>
+<div id="ventana" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); padding: 20px; border-radius: 10px; z-index: 1000;">
+<article>
+    <h2>Ayuda</h2>
+    <p>Para ver las películas, hacé clic en el botón con el nombre de la película,</p>
+    <p>Si no podés ver las películas, probá con otro navegador o dispositivo.</p>
+    <p>Si tenés problemas, podés contactarme a través de mi correo electrónico</p>
+    <br>
+    <p>medinathiagodaniel@outlook.es</p>
+    </p>
+</article>
+    <button style="background: none; border: none; color: rgb(255, 255, 255);" onclick="cerrarVentana()">x</button>
+</div>
 <script>
     function mostrarTab(tabId) {
         const tabs = document.querySelectorAll('div[id^="tab"]');
@@ -65,6 +82,22 @@
     }
 
     mostrarTab('tab1');
+
+    function mostrarVentana() {
+        document.getElementById('ventana').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function cerrarVentana() {
+        document.getElementById('ventana').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+   
+
 </script>
+<br>
+<footer style="background-color: rgb(53, 53, 53); padding: 20px; margin-top: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+    <p>© 2023 Películas Fr. Todos los derechos reservados.</p>
 </body>
 </html>

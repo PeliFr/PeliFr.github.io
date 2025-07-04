@@ -1,214 +1,179 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Películas Fr</title>
-    <link rel="icon" href="https://imgs.search.brave.com/3B5REA8c6OOm8RnX1Z5ffhCWpi_7Gd83PQLKC6L9VVA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvcHJldmll/dy0xeC8xOS82Mi9t/b3ZpZS1nZWVrLWxv/Z28tZGVzaWduLXRl/bXBsYXRlLWNsYXBw/ZXItdmVjdG9yLTI3/MTUxOTYyLmpwZw" type="image/png">
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 200;
-            text-align: center;
-            overflow-y: scroll;
-            text-shadow: 0 0 2px aquamarine;
-        }
-
-        button {
-            background-color: rgb(0, 130, 153);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 4px;
-            border-radius: 7px;
-            box-shadow: 0 2px 6px rgb(0, 0, 0);
-        }                                                                                                                                                                                                                                                                                                                                                                                                          
-
-        button:hover {
-            background-color: rgb(0, 96, 116);
-        }
-
-        button:active {
-            background-color: rgb(0, 70, 80);
-        }
-
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PeliFr Glitchwave Ultra</title>
+<style>
+:root {
+  --fondo: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  --neon: #00f7ff;
+  --oscuro: #1a1a1a;
+  --claro: #f4f4f4;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--fondo);
+  background-size: 400% 400%;
+  color: white;
+  text-align: center;
+  animation: fondoAnimado 12s ease infinite;
+  transition: background 0.6s ease, color 0.6s ease;
+  overflow-x: hidden;
+}
+@keyframes fondoAnimado {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+header {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+h1 {
+  font-size: 2.8em;
+  text-shadow: 0 0 10px var(--neon);
+}
+button {
+  padding: 12px 18px;
+  margin: 8px;
+  background: #000;
+  color: var(--neon);
+  border: 2px solid var(--neon);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: scale(1.06);
+  background-color: var(--neon);
+  color: #000;
+}
+button.activo {
+  background-color: var(--neon);
+  color: #000;
+  box-shadow: 0 0 12px var(--neon);
+  transform: scale(1.07);
+}
+.tab {
+  display: none;
+  padding: 30px;
+  animation: fadeIn 0.8s ease;
+}
+.visible {
+  display: block;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.92)}
+  to {opacity: 1; transform: scale(1)}
+}
+input {
+  padding: 12px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid var(--neon);
+  margin-top: 20px;
+  background-color: #111;
+  color: var(--neon);
+}
+iframe {
+  margin-top: 20px;
+  border: none;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 700px;
+  height: 400px;
+  box-shadow: 0 0 20px var(--neon);
+  display: none;
+}
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #ccc;
+  text-shadow: 0 0 2px black;
+}
+.modo-oscuro {
+  background: var(--claro);
+  color: #222;
+}
+.modo-oscuro header {
+  background: #ddd;
+}
+.modo-oscuro button {
+  background: #fff;
+  color: #222;
+  border-color: #222;
+}
+</style>
 </head>
 <body>
-    <header style="background-color: rgb(53, 53, 53); padding: 25px; transform: translateY(-20px); border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-    <h1 style="cursor: context-menu;">PeliFr</h1>
-    <p>¡En esta página podés ver películas totalmente gratis y online!</p>
-    <p>Para ver las películas, hacé clic en el botón con el nombre de la película.</p>
-    <button onclick="mostrarTab('tab1')">Películas de Acción</button><button onclick="mostrarTab('tab2')">Películas de Terror</button><button onclick="mostrarTab('tab3')">Reproductor Online</button>
-
-    
+<header>
+<h1>PeliFr 🎞️</h1>
+<p>Tu cine cyberpunk digital. Gratis, vibrante, y sin límites.</p>
+<button onclick="mostrar('accion', this)">🔥 Acción</button>
+<button onclick="mostrar('terror', this)">💀 Terror</button>
+<button onclick="mostrar('reproductor', this)">📽️ Reproductor</button>
+<button onclick="toggleModo()">🌗 Modo</button>
 </header>
-    <div id="tab1" style="display: none;">
-        <h2>Películas de Acción😎</h2>
-            <a href="https://m.youtube.com/watch?v=1HVpcNOA_0M&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(83, 0, 0); color: white;">Ella hizo todo</button></a></a><a href="https://m.youtube.com/watch?v=YTMges6TSs4&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(40, 40, 255);">Hercules 2</button></a><a href="https://m.youtube.com/watch?v=cVlveA3at2s&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: blueviolet;">The Meg 2</button></a><a href="https://m.youtube.com/watch?v=oDYMxslKPeY&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: aquamarine; color: black;">Don Exepcional</button></a><a href="https://m.youtube.com/watch?v=5KROpD2wOeE&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: darkgreen;">Plan En Las vegas</button></a><a href="https://m.youtube.com/watch?v=1EvCz1mXmMQ&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: rgb(37, 37, 37); color: white;">Crimen</button></a><a href="https://m.youtube.com/watch?v=ccQmquwxuWk&pp=ygUQUGVsw61jdWxzIGdyYXRpcw%3D%3D"><button style="background-color: gray;">Hombre Busca Venganza</button></a><a href="https://m.youtube.com/watch?v=NKGFtHcSbZs&pp=ygUVUGVsw61jdWxhcyBkZSBhY2Npw7Nu"><button style="background-color: rgb(58, 58, 58); color: white;">Invulnerable</button></a><a href="https://m.youtube.com/watch?v=koj1eSPwemQ&pp=ygUVUGVsw61jdWxhcyBkZSBhY2Npw7Nu"><button style="background-color: rgb(71, 42, 42);">Cuando tocan a su familia</button></a><a href="https://m.youtube.com/watch?v=pBAfzMNWSEw&pp=ygUVUGVsw61jdWxhcyBkZSBhY2Npw7Nu"><button style="background-color: cornflowerblue; color: black;">Lo condenan por error</button></a><a href="https://m.youtube.com/watch?v=ufK14KIrPE4&pp=ygUVUGVsw61jdWxhcyBkZSBhY2Npw7Nu"><button style="background-color: darkslategrey;">Ciudad sin gente</button></a><a href="https://m.youtube.com/watch?v=6yA4VoWhPu0&pp=ygUVUGVsw61jdWxhcyBkZSBhY2Npw7Nu"><button style="background-color: rgb(85, 7, 7);">Venganza Sin Sangre</button></a>
 
-            <div id="overlay"></div>
-<br><br><br><br><br><br>
-<button style="border-radius: 2px; padding: 5px; background-color: rgb(88, 88, 88); color: rgb(255, 255, 255); float: left;" onclick="mostrarVentana()">Ayuda</button>
-<div id="ventana" style="border: 1px white; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); padding: 20px; border-radius: 10px; z-index: 1000;">
-<article>
-    <h2>Ayuda</h2>
-    <p>Para ver las películas, hacé clic en el botón con el nombre de la película,</p>
-    <p>Si no podés ver las películas, probá con otro navegador o dispositivo.</p>
-    <p>Si tenés problemas, podés contactarme a través de mi correo electrónico</p>
-    <br>
-    <p>(Correo no disponible por el momento)</p>
-    </p>
-</article>
-    <button style="background: none; border: none; color: rgb(255, 255, 255);" onclick="cerrarVentana()">x</button>
+<div id="accion" class="tab">
+<h2>Películas de Acción</h2>
+<p>Ráfagas, explosiones y velocidad</p>
+<div>
+<button>🚗 Rápidos</button>
+<button>🦸 Superhéroes</button>
+<button>🔫 Espías</button>
 </div>
-    </div>
-
-    <div id="tab2" style="display: none;">
-        <h2>Películas de Terror💀</h2>
-        <a href="https://m.youtube.com/watch?v=afC7xjV92iQ&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(124, 0, 0); color: white;">Jeapers Creepers</button></a><a href="https://m.youtube.com/watch?v=3EA3CunWozU&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(58, 38, 38);">Puerta Maldita</button></a><a href="https://m.youtube.com/watch?v=sBIRDXV6bF4&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(49, 49, 49); ">Un retiro soñado</button></a><a href="https://m.youtube.com/watch?v=2EBZN3stndQ&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(43, 43, 43); color: rgb(255, 255, 255);">Adoptaron a un Demonio</button></a><a href="https://m.youtube.com/watch?v=uTliZziu9qQ&pp=ygUbUGVsw61jdWxhcyBkZSB0ZXJyb3IgZ3JhdGlz"><button style="background-color: rgb(48, 17, 17);">Muñeca maldita</button></a><a href="https://m.youtube.com/watch?v=VAjWSHULSX8"><button style="background-color: brown;">Casa maldita</button></a><a href="https://m.youtube.com/watch?v=htl9MVDIkFU"><button style="background-color: rgb(0, 55, 92); color: white;">Los mortales secretos</button></a><a href="https://m.youtube.com/watch?v=Au89pyOrIhU"><button style="background-color: gray; color: white;">Suspense</button></a><a href="https://m.youtube.com/watch?v=9WWoloINnvQ"><button style="background-color: rgb(0, 82, 0);">Terror en el Bosque</button></a><a href="https://m.youtube.com/watch?v=FVDhBEkB_F8"><button style="background-color: rgb(116, 12, 47);">Vacaciones de Chicas</button></a><a href="https://m.youtube.com/watch?v=HAI9Rs_7BO0"><button style="background-color: rgb(65, 64, 64);">La impostora</button></a><a href="https://m.youtube.com/watch?v=c5cbTa_WPmI"><button style="background-color: black;">La oscuridad</button></a><a href="https://m.youtube.com/watch?v=omU2ijoqwqI&pp=0gcJCcMJAYcqIYzv"><button style="background-color: rgb(148, 24, 24);">Psicopata</button></a><a href="https://m.youtube.com/watch?v=9Xptq4c9I0M&pp=0gcJCcMJAYcqIYzv"><button style="background-color: rgb(141, 141, 141); color: black;">Mantente lejos del Hospital</button></a>
-        
-        
-    </div>
-
-
-<div id="tab3">
-    <h1>Reproductor Online</h1>
-    <p>Para ver las películas totalmente online</p>
-    <input style="padding: 10px; background-color: white; color: black; border-radius: 10px; border: solid 2px aquamarine;" type="text" id="arrastrar"placeholder="Ingresa el link de la película">
-    <br><br><button style="background-color: rgb(131, 0, 0); transition: 0.3s ease;" onclick="reproducir()">Reproducir</button>
-    <iframe id="youtube-player" style="display: none; width: 100%; height: 500px; margin-top: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" frameborder="0" allowfullscreen></iframe>
-    <p>Si el video no se reproduce, probá con otro navegador o dispositivo.</p>
-    <p>Pero si no funciona de ninguna manera puedes hablarme através de mi correo eletrónico.</p>
-    <div style="position: fixed; top: 0; left: 0; z-index: 999; justify-content: center;" id="overlay2"></div>
-    <br><br><br><br><button style="float: right; border-radius: 15px; background: gray;" onclick="mostrarVentana2()">?</button><br>
-    <div id="ventana2" style="position: fixed; padding: 30px; transform: translate(-50%, -50%); top: 50%; left: 50%; display: none; background: none; background-color: black; color: white; border-radius: 10px;">
-        <h1>¿Porqué el Reproductor no funciona?</h1>
-        <p>eso pasa por youtube, ya que hay veces que el sus videos tiene restricciones</p>
-        <p>Y por eso no puede aparecer en sitios externos, pero puedes intentar</p>
-        <p>Abriendo namás otro link sin restricciónes.</p>
-        <h1>¿Cómo puedo conseguir los links?</h1>
-        <p>Puedes conseguir los links manteniendo presionado</p>
-        <p>El botón de la película en celular y presionar "Copiar dirección del vinculo" y pegarlo en el reproductor</p>
-        <p>y en pc dirije el puntero del mause hacía el botón de la película, y oprime click derecho, luego copiar dirección de enlace.</p>
-        <button style="background: none;" onclick="cerrarVentana2()">x</button>
-    </div>
 </div>
 
+<div id="terror" class="tab">
+<h2>Películas de Terror</h2>
+<p>Suspenso y escalofríos digitales</p>
+<div>
+<button>👻 Fantasmas</button>
+<button>🩸 Gore</button>
+<button>🕯️ Demonios</button>
+</div>
+</div>
 
+<div id="reproductor" class="tab">
+<h2>Reproductor Online</h2>
+<p>Pegá el link de tu peli 🎬</p>
+<input type="text" id="linkInput" placeholder="https://youtu.be/xxxxx">
+<br><br><button onclick="reproducir()">▶️ Reproducir</button>
+<iframe id="player"></iframe>
+</div>
 
+<footer>
+<p>&copy; 2025 PeliFr Glitchwave Ultra. Diseñado por el brujo del frontend creativo 🔥🧠</p>
+</footer>
 
 <script>
-    function mostrarTab(tabId) {
-        const tabs = document.querySelectorAll('div[id^="tab"]');
-        tabs.forEach(tab => {
-            if (tab.id === tabId) {
-                tab.style.display = 'block';
-            } else {
-                tab.style.display = 'none';
-            }
-        });
-    }
-
-    mostrarTab('tab1');
-
-    function mostrarVentana() {
-        document.getElementById('ventana').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
-    }
-
-    function cerrarVentana() {
-        document.getElementById('ventana').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-    }
-
-
-   window.addEventListener('wheel', function(event) {
-        if (event.deltaY < 0) {
-            document.body.scrollTop -= 50;
-            document.documentElement.scrollTop -= 50;
-        } else {
-            document.body.scrollTop += 50;
-            document.documentElement.scrollTop += 50;
-        }
-    });
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'ArrowUp') {
-            document.body.scrollTop -= 50;
-            document.documentElement.scrollTop -= 50;
-        } else if (event.key === 'ArrowDown') {
-            document.body.scrollTop += 50;
-            document.documentElement.scrollTop += 50;
-        }
-    });
-
-    setInterval(function() {
-        document.getElementById('anuncio').style.display = 'block';
-    }, 600);
-
-    function cerrarAnuncio() {
-        document.getElementById('anuncio').style.display = 'none';
-    }
-    
-
-function reproducir() {
-    const link = document.getElementById('arrastrar').value.trim();
-    const player = document.getElementById('youtube-player');
-    let videoId = '';
-
-    const regExp = /(?:youtube\.com\/.*v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const match = link.match(regExp);
-    if (match && match[1]) {
-        videoId = match[1];
-    }
-
-    if (videoId) {
-        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        player.style.display = 'block';
-    } else {
-        alert('Porfavor ingrese un enlace de youtube válido.');
-        player.style.display = 'none';
-    }
-    document.getElementById('arrastrar').value = '';
+function mostrar(tabId, boton){
+  document.querySelectorAll('.tab').forEach(tab=>tab.classList.remove('visible'));
+  document.getElementById(tabId).classList.add('visible');
+  document.querySelectorAll('header button').forEach(btn=>btn.classList.remove('activo'));
+  if(boton.classList.contains('activo')) return;
+  boton.classList.add('activo');
 }
-
-function reproducir() {
-    const link = document.getElementById('arrastrar').value.trim();
-    const player = document.getElementById('youtube-player');
-    let videoId = '';
-    const regExp = /(?:youtube\.com\/.*v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const match = link.match(regExp);
-    if (match && match[1]) {
-        videoId = match[1];
-    }
-
-    if (videoId) {
-        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        player.style.display = 'block';
-    } else {
-        alert('Por favor, ingresa un enlace de YouTube válido.');
-        player.style.display = 'none';
-    }
-    document.getElementById('arrastrar').value = '';
+function reproducir(){
+  const link=document.getElementById('linkInput').value.trim();
+  const match=link.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  const player=document.getElementById('player');
+  if(match){
+    player.src=`https://www.youtube.com/embed/${match[1]}?autoplay=1`;
+    player.style.display='block';
+  }else{
+    alert("👀 Che, ese link no va. Probá con uno válido de YouTube.");
+  }
 }
- function mostrarVentana2() {
-    document.getElementById('ventana2').style.display = 'inline-block';
-    document.getElementById('overlay2').style.display = 'inline-block';
- }
-
- function cerrarVentana2() {
-    document.getElementById('ventana2').style.display = 'none';
-    document.getElementById('overlay2').style.display = 'none';
- }
-    
-    
+function toggleModo(){
+  document.body.classList.toggle("modo-oscuro");
+}
 </script>
-<br>
-
 </body>
 </html>
